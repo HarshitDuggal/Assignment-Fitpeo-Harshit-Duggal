@@ -14,8 +14,7 @@ const SidebarComp = () => {
           <p style={{ color: 'white', marginLeft: '16px', fontSize: '25px' }}>Dashboard</p>
         </div>
         <Menu menuItemStyles={{
-      button: ({ level, active, disabled }) => {
-        // only apply styles on first level elements of the tree
+      button: ({ level}) => {
         if (level === 0 || level === 1)
           return {
             color:  '#fff',
