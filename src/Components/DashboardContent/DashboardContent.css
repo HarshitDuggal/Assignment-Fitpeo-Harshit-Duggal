@@ -42,15 +42,69 @@
   }
   
   .card {
-    width: calc(33.33% - 10px); 
-    background-color: #f0f0f0;
+    width: calc(20% - 10px); 
+    background-color: #fff;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
+    border: none;
+    border-radius: 10px;
+    text-align: left;
+    display: flex;
   }
-  
+  .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+  }
 
+  .card-details p{
+    margin: 0%;
+    padding: 0%;
+    font-weight: 200;
+    color: gray;
+    font-size: small;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+
+  .card-details h3{
+    margin: 0%;
+    padding: 0%;
+  }
+  .card-details h5{
+    margin: 0%;
+    padding: 0%;
+  }
+  .dot {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .graph-card-container{
+    display: flex;
+    margin-top: 3%;
+  }
+  .bar-chart-container{
+    width: calc(65% - 10px); 
+    background-color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: left;
+    display: flex;
+    margin-right: 20px
+  }
+  .pie-chart-container{
+    width: calc(35% - 10px); 
+    background-color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: left;
+    display: flex;
+  }
   
   
   
