@@ -1,3 +1,58 @@
 .main-container{
-    margin: 0%;
+    width: 79%;
+    margin-left: 5vh;
 }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.3vh;
+
+}
+
+.header p{
+    font-weight: 600;
+}
+
+.input-container {
+    
+    display: flex;
+    align-items: center;
+    background-color: #fff; 
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+  }
+  
+  .search-icon {
+    margin-left: 8px;
+    color: #888; 
+  }
+
+.header input {
+    padding: 8px; 
+    border: none;
+    outline:none;
+    width: 100%; 
+  }
+
+  .cards-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .card {
+    width: calc(33.33% - 10px); 
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+
+  
+  
+  
+  
+  
