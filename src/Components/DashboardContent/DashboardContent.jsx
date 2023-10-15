@@ -1,7 +1,17 @@
 import "./DashboardContent.css";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { BarChart, Bar, XAxis, Tooltip } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  Tooltip,
+  PieChart,
+  Pie,
+  ResponsiveContainer,
+  Cell,
+  Legend,
+} from "recharts";
 import {
   AiOutlineDollar,
   AiOutlineArrowUp,
@@ -19,7 +29,6 @@ const DashboardContent = () => {
     setSearchInput(e.target.value);
   };
 
-  // Sample data for the bar chart and pie chart
   const data = [
     {
       name: "Jan",
@@ -70,12 +79,35 @@ const DashboardContent = () => {
       earnings: 500,
     },
   ];
-
+  const COLORS = ["#FFBB28", "#FF8042", "#AF19FF"];
   const pieChartData = [
     { name: "Customers", value: 30 },
     { name: "Subscribers", value: 25 },
     { name: "Guests", value: 45 },
   ];
+
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active) {
+      return (
+        <div
+          className="custom-tooltip"
+          style={{
+            backgroundColor: "#ffff",
+            padding: "5px",
+            border: "1px solid #cccc",
+          }}
+        >
+          <label>{`${payload[0].name} : ${payload[0].value}%`}</label>
+        </div>
+      );
+    }
+    return null;
+  };
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const handleDropdownChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
   return (
     <div className="main-container">
@@ -139,20 +171,62 @@ const DashboardContent = () => {
       </div>
       <div className="graph-card-container">
         <div className="bar-chart-container">
-          <BarChart width={700} height={300} data={data}>
-            <Bar
-              dataKey="earnings"
-              fill="blue"
-              radius={[5, 5, 5, 5]}
-              baseValue={100}
-              stackId="a"
-            />
-            <XAxis dataKey="name" />
-            <Tooltip active />
-          </BarChart>
+          <div className="bar-chart-header">
+            <div className="bar-chart-details">
+              <h4>Overview</h4>
+              <p>Monthly Earning</p>
+            </div>
+            <div className="bar-chart-dropdown">
+              <select value={selectedOption} onChange={handleDropdownChange}>
+                <option value="">Select an option</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+              </select>
+            </div>
+          </div>
+          <div className="bar-chart">
+            <BarChart width={700} height={300} data={data}>
+              <Bar
+                dataKey="earnings"
+                fill="blue"
+                radius={[5, 5, 5, 5]}
+                baseValue={100}
+              />
+              <XAxis dataKey="name" />
+              <Tooltip active />
+            </BarChart>
+          </div>
         </div>
         <div className="pie-chart-container">
-          <span>Chart 1</span>
+          <div className="pie-chart-details">
+            <h4>Customers</h4>
+            <p>Customer's that buy products</p>
+          </div>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                dataKey="value"
+                nameKey="name"
+                data={pieChartData}
+                cx="50%"
+                cy="50%"
+                innerRadius={60}
+                outerRadius={80}
+                fill="#8884d8"
+                label
+              >
+                {pieChartData.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
+                  />
+                ))}
+              </Pie>
+              <Tooltip content={CustomTooltip} />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
         </div>
       </div>
     </div>
