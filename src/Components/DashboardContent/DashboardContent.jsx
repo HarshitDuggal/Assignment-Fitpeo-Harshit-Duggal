@@ -24,6 +24,20 @@ import Card from "../Card/Card";
 
 const DashboardContent = () => {
   const [searchInput, setSearchInput] = useState("");
+  const [productSearch, setProductSearch] = useState("");
+  const [selectedOption, setSelectedOption] = useState("");
+  const [timeFilter, setTimeFilter] = useState("");
+
+  const handleDropdownChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+  const handleDropdownFilter = (event) => {
+    setTimeFilter(event.target.value);
+  };
+  const handleProductSearch = (e) => {
+    e.preventDefault();
+    setProductSearch(e.target.value);
+  };
   const handleChange = (e) => {
     e.preventDefault();
     setSearchInput(e.target.value);
@@ -102,11 +116,6 @@ const DashboardContent = () => {
       );
     }
     return null;
-  };
-  const [selectedOption, setSelectedOption] = useState("");
-
-  const handleDropdownChange = (event) => {
-    setSelectedOption(event.target.value);
   };
 
   return (
@@ -227,6 +236,56 @@ const DashboardContent = () => {
               <Legend />
             </PieChart>
           </ResponsiveContainer>
+        </div>
+      </div>
+      <div className="listing-container">
+        <div className="listing-header-container">
+          <h3>Product Sell</h3>
+          <div className="filter-container">
+            <div className="product-input-container">
+              <FaSearch className="product-search-icon" size={13} />
+              <input
+                type="text"
+                placeholder="Search"
+                onChange={handleProductSearch}
+                name="search"
+                value={productSearch}
+              />
+            </div>
+            <div className="filter-dropdown">
+              <select value={timeFilter} onChange={handleDropdownFilter}>
+                <option value="">Select an option</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div className="products-listing">
+          <div className="product-listing-header">
+            <div className="column product-name">Product Name</div>
+            <div className="column stock">Stock</div>
+            <div className="column price">Price</div>
+            <div className="column total-sales">Total Sales</div>
+          </div>
+          <hr/>
+          <div className="product-item">
+            <div className="column product-name">
+              <div className="product-image">
+                <img src="https://images.inc.com/uploaded_files/inc5000company/screen_shot_20220624_at_10.20.30_pm_146555.png" alt="Product" />
+              </div>
+              <div className="product-info">
+                <p className="product-title">Abstract 3d</p>
+                <p className="product-bio">Jelly sweet roll jelly beans biscuit pie macaroon chocolate donut. Carrot cake caramels pie sweet apple pie tiramisu carrot cake. </p>
+              </div>
+            </div>
+            <div className="column stock">32 in stock</div>
+            <div className="column price">
+              <span className="price-dollar">$</span>54
+            </div>
+            <div className="column total-sales">20</div>
+          </div>
         </div>
       </div>
     </div>

@@ -7,8 +7,8 @@ import './SidebarComp.css';
 const SidebarComp = () => {
 
   return (
-    <div style={{ display: "flex", height: '100vh', overflowY: 'auto' }}>
-      <Sidebar backgroundColor="#040440" width="250px" >
+    <div style={{ display: "flex", overflowY: 'auto',position:'fixed',height:'100vh',top:0,left:0 }}>
+      <Sidebar backgroundColor="#040440" width="250px"  >
         <div className="header-text" style={{ display: 'flex', alignItems: 'center', marginLeft: '5%' }}>
           <TbDashboard color="white" size={22} />
           <p style={{ color: 'white', marginLeft: '16px', fontSize: '25px' }}>Dashboard</p>

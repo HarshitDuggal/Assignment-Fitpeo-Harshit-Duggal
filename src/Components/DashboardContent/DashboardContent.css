@@ -1,6 +1,6 @@
 .main-container {
   width: 79%;
-  margin-left: 5vh;
+  margin-left: 40vh; 
 }
 
 .header {
@@ -126,5 +126,198 @@
 }
 
 .bar-chart-dropdown select {
-  border-style: ;
+  border-style: none;
+  background-color: #f5f6f8;
+  border-radius: 7%;
 }
+
+.listing-container {
+    margin-top: 3%;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  .listing-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+  }
+  
+  .listing-header-container h3 {
+    margin-left: 10px;
+  }
+  
+  .filter-container {
+    display: flex;
+    align-items: center; 
+    margin-right: 10px;
+    padding: 10px;
+  }
+  
+  .product-input-container {
+    margin: 10px;
+    background-color: #FAFBFF;
+    display: flex;
+    align-items: center; 
+  }
+  
+  .product-input-container .product-search-icon {
+    color: grey;
+    padding: 0 9px; 
+  }
+  
+  .product-input-container input {
+    background-color: #FAFBFF;
+    border-style: none;
+  }
+  
+  .filter-dropdown select {
+    background-color: #FAFBFF;
+    border-style: none;
+  }
+  .listing-container {
+    margin-top: 3%;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  .listing-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .listing-header-container h3 {
+    margin-left: 10px;
+  }
+  
+  .filter-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    padding: 10px;
+  }
+  
+  .product-input-container {
+    margin: 10px;
+    background-color: #FAFBFF;
+    display: flex;
+    align-items: center;
+  }
+  
+  .product-input-container .product-search-icon {
+    color: grey;
+    padding: 0 9px;
+  }
+  
+  .product-input-container input {
+    background-color: #FAFBFF;
+    border-style: none;
+  }
+  
+  .filter-dropdown select {
+    background-color: #FAFBFF;
+    border-style: none;
+  }
+  
+  .products-listing{
+    padding: 1%;
+  }
+  .product-listing-header{
+    display: flex;
+  }
+  .product-listing-header .column{
+    color: #888;
+  }
+  .product-listing-header .product-name{
+    width: 60%;
+  }
+  .product-listing-header .stock{
+    width: 15%;
+  }
+  .product-listing-header .price{
+    width: 15%;
+  }
+  .product-listing-header .total-sales{
+    width: 15%;
+  }
+  .product-item{
+    display: flex;
+  }
+  .product-image{
+    width: 10%;
+  } 
+  img{
+    width: 80%;
+    margin-top: 10px;
+  }
+   .product-item .product-name{
+    display: flex;
+  } 
+  .product-info{
+    margin: 0%;
+    padding: 0%;
+    width: 50%;
+  }
+  .product-info .product-title {
+    font-weight: bold;
+  }
+  
+  .price-dollar {
+    font-weight: bold;
+    padding-right: 4px;
+  }
+  .product-item .stock {
+    width: 15%;
+    padding: 0%;
+    margin-right: 8%;
+  }
+  .product-item .price{
+    width: 15%;
+    margin-right: 7.5%;
+  }
+  .product-item .total-sales{
+    width: 15%;
+    margin-right: 7.5%;
+  }
+  
+  @media (max-width: 768px) {
+    .main-container {
+      width: 100%; /* Make the main container full width */
+      margin-left: 0; /* Remove the left margin */
+    }
+  
+    .header {
+      flex-direction: column; /* Stack header items vertically on smaller screens */
+      margin-top: 1vh;
+    }
+  
+    .header p {
+      margin-bottom: 1vh; /* Add some spacing below the "Hello Harshit" text */
+    }
+  
+    /* You can adjust the card styling for smaller screens */
+    .card {
+      width: 100%; /* Make each card full width */
+      margin-bottom: 1vh; /* Add some spacing between cards */
+    }
+  
+    /* Adjust the layout of your bar-chart and pie-chart containers for smaller screens */
+    .bar-chart-container {
+      width: 100%; /* Make it full width */
+      margin-right: 0; /* Remove margin between bar-chart and pie-chart */
+    }
+  
+    .pie-chart-container {
+      width: 100%; /* Make it full width */
+    }
+  
+    /* Style adjustments for the listing container and its items */
+    .listing-container {
+      margin-top: 2vh; /* Add more spacing at the top */
+    }
+  
+    /* You can further adjust your styles as needed for smaller screens */
+  }
+  
+  
