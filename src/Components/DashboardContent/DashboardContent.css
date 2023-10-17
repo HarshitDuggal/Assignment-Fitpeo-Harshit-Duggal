@@ -1,6 +1,8 @@
 .main-container {
-  width: 79%;
-  margin-left: 40vh; 
+  width: 100%; 
+  margin-left: 260px;
+  margin-right: 10px;
+  background-color: #F5F6F8;
 }
 
 .header {
@@ -47,6 +49,7 @@
   border-radius: 10px;
   text-align: left;
   display: flex;
+  align-items: center;
 }
 .card-icon {
   display: flex;
@@ -65,12 +68,16 @@
 }
 
 .card-details h3 {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
+}
+.card-details h4{
+  margin:0;
+  padding: 0;
 }
 .card-details h5 {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
 }
 .dot {
   height: 90px;
@@ -83,6 +90,7 @@
 .graph-card-container {
   display: flex;
   margin-top: 3%;
+  z-index: 1;
 }
 .bar-chart-container {
   display: flex;
@@ -112,8 +120,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
 }
 .bar-chart-details {
   margin: 0;
@@ -129,6 +137,10 @@
   border-style: none;
   background-color: #f5f6f8;
   border-radius: 7%;
+}
+.bar-chart{
+  margin: 0;
+  padding: 0;
 }
 
 .listing-container {
@@ -281,43 +293,6 @@
     margin-right: 7.5%;
   }
   
-  @media (max-width: 768px) {
-    .main-container {
-      width: 100%; /* Make the main container full width */
-      margin-left: 0; /* Remove the left margin */
-    }
-  
-    .header {
-      flex-direction: column; /* Stack header items vertically on smaller screens */
-      margin-top: 1vh;
-    }
-  
-    .header p {
-      margin-bottom: 1vh; /* Add some spacing below the "Hello Harshit" text */
-    }
-  
-    /* You can adjust the card styling for smaller screens */
-    .card {
-      width: 100%; /* Make each card full width */
-      margin-bottom: 1vh; /* Add some spacing between cards */
-    }
-  
-    /* Adjust the layout of your bar-chart and pie-chart containers for smaller screens */
-    .bar-chart-container {
-      width: 100%; /* Make it full width */
-      margin-right: 0; /* Remove margin between bar-chart and pie-chart */
-    }
-  
-    .pie-chart-container {
-      width: 100%; /* Make it full width */
-    }
-  
-    /* Style adjustments for the listing container and its items */
-    .listing-container {
-      margin-top: 2vh; /* Add more spacing at the top */
-    }
-  
-    /* You can further adjust your styles as needed for smaller screens */
-  }
+
   
   

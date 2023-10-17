@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Card = (props) => {
   return (
@@ -12,7 +12,11 @@ const Card = (props) => {
         <p>{props.title}</p>
         <h3>{props.amount}</h3>
         <h4>
-          {props.percentageChangeIcon} {props.percentageChangeText}
+          {props.percentageChangeIcon}
+          <span style={{  color: props.percentageTextColor }}>
+            {props.percentageChangeText}
+          </span>{" "}
+          {props.percentageChangeSuffix}
         </h4>
       </div>
     </>

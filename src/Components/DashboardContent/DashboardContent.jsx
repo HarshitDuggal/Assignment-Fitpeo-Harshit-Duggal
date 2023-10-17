@@ -141,7 +141,9 @@ const DashboardContent = () => {
             title="Earning"
             amount="$198k"
             percentageChangeIcon={<AiOutlineArrowUp color="green" />}
-            percentageChangeText="37.8% this month"
+            percentageTextColor = "green"
+            percentageChangeText="37.8%"
+            percentageChangeSuffix = "this month"
           />
         </div>
 
@@ -152,7 +154,9 @@ const DashboardContent = () => {
             title="Orders"
             amount="$2.4k"
             percentageChangeIcon={<AiOutlineArrowDown color="red" />}
-            percentageChangeText="2% this month"
+            percentageTextColor = "red"
+            percentageChangeText="2% "
+            percentageChangeSuffix = "this month"
           />
         </div>
 
@@ -163,7 +167,9 @@ const DashboardContent = () => {
             title="Balance"
             amount="$2.4k"
             percentageChangeIcon={<AiOutlineArrowDown color="red" />}
-            percentageChangeText="2% this month"
+            percentageTextColor = "red"
+            percentageChangeText="2%"
+            percentageChangeSuffix = "this month"
           />
         </div>
 
@@ -174,7 +180,9 @@ const DashboardContent = () => {
             title="Total sales"
             amount="$98k"
             percentageChangeIcon={<AiOutlineArrowUp color="green" />}
-            percentageChangeText="11% this week"
+            percentageTextColor = "green"
+            percentageChangeText="11%"
+            percentageChangeSuffix = "this week"
           />
         </div>
       </div>
@@ -187,15 +195,14 @@ const DashboardContent = () => {
             </div>
             <div className="bar-chart-dropdown">
               <select value={selectedOption} onChange={handleDropdownChange}>
-                <option value="">Select an option</option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
+                <option value="">Half-yearly</option>
+                <option value="option1">Quaterly</option>
+                <option value="option2">Yearly</option>
               </select>
             </div>
           </div>
           <div className="bar-chart">
-            <BarChart width={700} height={300} data={data}>
+            <BarChart width={700} height={250} data={data}>
               <Bar
                 dataKey="earnings"
                 fill="blue"
@@ -212,7 +219,7 @@ const DashboardContent = () => {
             <h4>Customers</h4>
             <p>Customer's that buy products</p>
           </div>
-          <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={250}>
             <PieChart>
               <Pie
                 dataKey="value"
@@ -254,10 +261,10 @@ const DashboardContent = () => {
             </div>
             <div className="filter-dropdown">
               <select value={timeFilter} onChange={handleDropdownFilter}>
-                <option value="">Select an option</option>
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
+                <option value="">Filter</option>
+                <option value="option1">Daily</option>
+                <option value="option2">Weekly</option>
+                <option value="option3">Monthly</option>
               </select>
             </div>
           </div>

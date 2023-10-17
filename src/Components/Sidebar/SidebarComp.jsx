@@ -5,10 +5,10 @@ import './SidebarComp.css';
 
 
 const SidebarComp = () => {
-
+console.log(window.innerHeight);
   return (
-    <div style={{ display: "flex", overflowY: 'auto',position:'fixed',height:'100vh',top:0,left:0 }}>
-      <Sidebar backgroundColor="#040440" width="250px"  >
+    <div className="sidebar-container" style={{ display: "flex", overflowY: 'auto',position:'fixed',height:'100vh',top:0,left:0,zIndex:2 }}>
+      <Sidebar backgroundColor="#040440" width="250px"  height="100%">
         <div className="header-text" style={{ display: 'flex', alignItems: 'center', marginLeft: '5%' }}>
           <TbDashboard color="white" size={22} />
           <p style={{ color: 'white', marginLeft: '16px', fontSize: '25px' }}>Dashboard</p>
