@@ -1,3 +1,12 @@
+.sidebar-container {
+  display: flex;
+  overflow-y: auto;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
 .sidebar-footer {
   background-color: #2d2d69;
   padding: 16px;
@@ -37,4 +46,23 @@
 .profile-details p {
   font-size: 12px;
   margin: 0;
+}
+
+/* media queries */
+@media (max-width: 768px) {
+  .sidebar-footer {
+    width: 30px;
+    justify-content: center;
+    left: 1.25%;
+  }
+  .profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0;
+  }
+  .icon-header.center {
+    margin: 0 auto;
+    margin-top: 40%;
+  }
 }

@@ -1,5 +1,5 @@
 import "./DashboardContent.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import {
   BarChart,
@@ -12,21 +12,77 @@ import {
   Cell,
   Legend,
 } from "recharts";
+import { data } from "../../Data/BarChartData";
+import { COLORS, pieChartData } from "../../Data/PieChartData";
 import {
   AiOutlineDollar,
   AiOutlineArrowUp,
   AiOutlineArrowDown,
-} from "react-icons/ai";
-import { BsReceiptCutoff } from "react-icons/bs";
-import { MdAccountBalanceWallet } from "react-icons/md";
-import { PiHandbagBold } from "react-icons/pi";
+  BsReceiptCutoff,
+  MdAccountBalanceWallet,
+  PiHandbagBold,
+} from "../../Constants/Icons";
 import Card from "../Card/Card";
 
+const CustomTooltip = ({ active, payload }) => {
+  if (active) {
+    return (
+      <div
+        className="custom-tooltip"
+        style={{
+          backgroundColor: "#ffff",
+          padding: "5px",
+          border: "1px solid #cccc",
+        }}
+      >
+        <label>{`${payload[0].name} : ${payload[0].value}%`}</label>
+      </div>
+    );
+  }
+  return null;
+};
 const DashboardContent = () => {
   const [searchInput, setSearchInput] = useState("");
   const [productSearch, setProductSearch] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
   const [timeFilter, setTimeFilter] = useState("");
+  const [chartWidth, setChartWidth] = useState(900);
+
+  const updateChartWidth = () => {
+    const screenWidth = window.innerWidth;
+    console.log("Screen width:", screenWidth);
+
+    if (screenWidth > 1937) {
+      setChartWidth(1200);
+    } else if (screenWidth > 1716) {
+      setChartWidth(1000);
+    } else if (screenWidth >= 1378 && screenWidth < 1600) {
+      setChartWidth(700);
+    } else if (screenWidth >= 970 && screenWidth < 1378) {
+      setChartWidth(600);
+    } else if (screenWidth >= 800 && screenWidth < 970) {
+      setChartWidth(400);
+    } else if (screenWidth > 768 && screenWidth <= 800) {
+      setChartWidth(450);
+    } else if (screenWidth <= 768 && screenWidth >= 800) {
+      setChartWidth(600);
+    } else if (screenWidth < 768 && screenWidth > 660) {
+      setChartWidth(500);
+    } else {
+      setChartWidth(400);
+    }
+    console.log(chartWidth);
+  };
+
+  useEffect(() => {
+    updateChartWidth();
+
+    window.addEventListener("resize", updateChartWidth);
+
+    return () => {
+      window.removeEventListener("resize", updateChartWidth);
+    };
+  }, []);
 
   const handleDropdownChange = (event) => {
     setSelectedOption(event.target.value);
@@ -41,81 +97,6 @@ const DashboardContent = () => {
   const handleChange = (e) => {
     e.preventDefault();
     setSearchInput(e.target.value);
-  };
-
-  const data = [
-    {
-      name: "Jan",
-      earnings: 200,
-    },
-    {
-      name: "Feb",
-      earnings: 300,
-    },
-    {
-      name: "Mar",
-      earnings: 100,
-    },
-    {
-      name: "Apr",
-      earnings: 400,
-    },
-    {
-      name: "May",
-      earnings: 250,
-    },
-    {
-      name: "Jun",
-      earnings: 250,
-    },
-    {
-      name: "Jul",
-      earnings: 250,
-    },
-    {
-      name: "Aug",
-      earnings: 250,
-    },
-    {
-      name: "Sep",
-      earnings: 200,
-    },
-    {
-      name: "Oct",
-      earnings: 340,
-    },
-    {
-      name: "Nov",
-      earnings: 300,
-    },
-    {
-      name: "Dec",
-      earnings: 500,
-    },
-  ];
-  const COLORS = ["#FFBB28", "#FF8042", "#AF19FF"];
-  const pieChartData = [
-    { name: "Customers", value: 30 },
-    { name: "Subscribers", value: 25 },
-    { name: "Guests", value: 45 },
-  ];
-
-  const CustomTooltip = ({ active, payload, label }) => {
-    if (active) {
-      return (
-        <div
-          className="custom-tooltip"
-          style={{
-            backgroundColor: "#ffff",
-            padding: "5px",
-            border: "1px solid #cccc",
-          }}
-        >
-          <label>{`${payload[0].name} : ${payload[0].value}%`}</label>
-        </div>
-      );
-    }
-    return null;
   };
 
   return (
@@ -141,9 +122,9 @@ const DashboardContent = () => {
             title="Earning"
             amount="$198k"
             percentageChangeIcon={<AiOutlineArrowUp color="green" />}
-            percentageTextColor = "green"
+            percentageTextColor="green"
             percentageChangeText="37.8%"
-            percentageChangeSuffix = "this month"
+            percentageChangeSuffix="this month"
           />
         </div>
 
@@ -154,9 +135,9 @@ const DashboardContent = () => {
             title="Orders"
             amount="$2.4k"
             percentageChangeIcon={<AiOutlineArrowDown color="red" />}
-            percentageTextColor = "red"
+            percentageTextColor="red"
             percentageChangeText="2% "
-            percentageChangeSuffix = "this month"
+            percentageChangeSuffix="this month"
           />
         </div>
 
@@ -167,9 +148,9 @@ const DashboardContent = () => {
             title="Balance"
             amount="$2.4k"
             percentageChangeIcon={<AiOutlineArrowDown color="red" />}
-            percentageTextColor = "red"
+            percentageTextColor="red"
             percentageChangeText="2%"
-            percentageChangeSuffix = "this month"
+            percentageChangeSuffix="this month"
           />
         </div>
 
@@ -180,9 +161,9 @@ const DashboardContent = () => {
             title="Total sales"
             amount="$98k"
             percentageChangeIcon={<AiOutlineArrowUp color="green" />}
-            percentageTextColor = "green"
+            percentageTextColor="green"
             percentageChangeText="11%"
-            percentageChangeSuffix = "this week"
+            percentageChangeSuffix="this week"
           />
         </div>
       </div>
@@ -202,7 +183,7 @@ const DashboardContent = () => {
             </div>
           </div>
           <div className="bar-chart">
-            <BarChart width={700} height={250} data={data}>
+            <BarChart width={chartWidth} height={250} data={data}>
               <Bar
                 dataKey="earnings"
                 fill="blue"
@@ -276,15 +257,22 @@ const DashboardContent = () => {
             <div className="column price">Price</div>
             <div className="column total-sales">Total Sales</div>
           </div>
-          <hr/>
+          <hr />
           <div className="product-item">
             <div className="column product-name">
               <div className="product-image">
-                <img src="https://images.inc.com/uploaded_files/inc5000company/screen_shot_20220624_at_10.20.30_pm_146555.png" alt="Product" />
+                <img
+                  src="https://images.inc.com/uploaded_files/inc5000company/screen_shot_20220624_at_10.20.30_pm_146555.png"
+                  alt="Product"
+                />
               </div>
               <div className="product-info">
                 <p className="product-title">Abstract 3d</p>
-                <p className="product-bio">Jelly sweet roll jelly beans biscuit pie macaroon chocolate donut. Carrot cake caramels pie sweet apple pie tiramisu carrot cake. </p>
+                <p className="product-bio">
+                  Jelly sweet roll jelly beans biscuit pie macaroon chocolate
+                  donut. Carrot cake caramels pie sweet apple pie tiramisu
+                  carrot cake.{" "}
+                </p>
               </div>
             </div>
             <div className="column stock">32 in stock</div>
